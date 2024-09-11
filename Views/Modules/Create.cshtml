@@ -1,0 +1,62 @@
+﻿@model POEPart3.Module
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<link rel="stylesheet" href="~/css/CRUDStyle.css" />
+
+
+<body class="body">
+    <div class="wrapper">
+        <h1>Create</h1>
+
+        <h4>Module</h4>
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="input-box">
+                <input asp-for="Code" type="text" placeholder="Module Code" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <input asp-for="Name" type="text" placeholder="Module Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <input asp-for="Credits" type="text" placeholder="Module Credits" />
+                <span asp-validation-for="Credits" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <input asp-for="ClassHoursPerWeek" type="text" placeholder="Module Class Hours Per Week" />
+                <span asp-validation-for="ClassHoursPerWeek" class="text-danger"></span>
+            </div>
+            @*             <div class="form-group">
+            <label asp-for="SelfStudyHoursPerWeek" class="control-label"></label>
+            <input asp-for="SelfStudyHoursPerWeek" class="form-control" />
+            <span asp-validation-for="SelfStudyHoursPerWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="UserId" class="control-label"></label>
+            <input asp-for="UserId" class="form-control" />
+            <span asp-validation-for="UserId" class="text-danger"></span>
+            </div> *@
+            <div class="input-box">
+                <select class="select" asp-for="SemesterId" type="text" placeholder="Semester Id" asp-items="ViewBag.SemesterId"></select>
+            </div>
+            <div class="a">
+                <input type="submit" value="Create" class="btn btn-primary" style="margin-right: 10px;" />
+                <a asp-action="Index" class="btn">Back to List</a>
+            </div>
+        </form>
+
+    </div>
+
+
+
+</body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

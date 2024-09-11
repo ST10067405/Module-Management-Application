@@ -1,0 +1,57 @@
+﻿@model POEPart3.ModuleStudyRecord
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<link rel="stylesheet" href="~/css/CRUDStyle.css" />
+
+<body class="body">
+    <div class="wrapper">
+        <h1>Details</h1>
+        <h4>Module Records</h4>
+        <dl class="row">
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.ModuleCode)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.ModuleCode)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd class="col-sm-7">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.HoursWorked)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.HoursWorked)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.HoursLeft)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.HoursLeft)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+            <dd class="col-sm-7">
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.ModuleId)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.ModuleId)
+            </dd>
+        </dl>
+        <div class="a">
+            <a asp-action="Edit" asp-route-id="@Model?.RecordId" class="btn" style="margin-right: 10px;">Edit</a>
+            <a asp-action="Index" class="btn">Back to List</a>
+        </div>
+    </div>
+</body>

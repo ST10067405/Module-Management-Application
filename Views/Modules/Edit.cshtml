@@ -1,0 +1,63 @@
+﻿@model POEPart3.Module
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link rel="stylesheet" href="~/css/CRUDStyle.css" />
+
+<body class="body">
+    <div class="wrapper">
+        <h1>Edit</h1>
+        <h4>Module</h4>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ModuleId" />
+            <div class="input-box">
+                <label>Module Code</label>
+                <input asp-for="Code" type="text" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <label>Module Name</label>
+                <input asp-for="Name" type="text" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <label>Module Credits</label>
+                <input asp-for="Credits" type="text" />
+                <span asp-validation-for="Credits" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <label>Class Hours Per Week</label>
+                <input asp-for="ClassHoursPerWeek" type="text" />
+                <span asp-validation-for="ClassHoursPerWeek" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <label>Self-Study Hours Per Week</label>
+                <input asp-for="SelfStudyHoursPerWeek" type="text" />
+                <span asp-validation-for="SelfStudyHoursPerWeek" class="text-danger"></span>
+            </div>
+@*             <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div> *@
+            <div class="input-box">
+                <label>Semester Id</label>
+                <select class="select" asp-for="SemesterId" type="text" asp-items="ViewBag.SemesterId"></select>
+                <span asp-validation-for="SemesterId" class="text-danger"></span>
+            </div>
+            <div class="a">
+                <input type="submit" value="Save" class="btn btn-primary" style="margin-right: 10px;" />
+                <a asp-action="Index" class="btn">Back to List</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

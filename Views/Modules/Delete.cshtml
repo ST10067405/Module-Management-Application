@@ -1,0 +1,65 @@
+﻿@model POEPart3.Module
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<link rel="stylesheet" href="~/css/CRUDStyle.css" />
+
+<body class="body">
+    <div class="wrapper">
+        <h1>Delete</h1>
+        <h4>Module</h4>
+        <h4 style="text-decoration:underline;">Are you sure you want to delete this?</h4>
+        <dl class="row">
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Code)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Code)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Credits)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Credits)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.ClassHoursPerWeek)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.ClassHoursPerWeek)
+            </dd>
+            <dt class="col-sm-7">
+                @Html.DisplayNameFor(model => model.SelfStudyHoursPerWeek)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.SelfStudyHoursPerWeek)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+            <dd class="col-sm-7">
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Semester)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Semester.Name)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete" class="a">
+            <input type="hidden" asp-for="ModuleId" />
+            <input type="submit" value="Delete" class="btn btn-danger" style="margin-right: 10px;" />
+            <a asp-action="Index" class="btn">Back to List</a>
+        </form>
+    </div>
+</body>

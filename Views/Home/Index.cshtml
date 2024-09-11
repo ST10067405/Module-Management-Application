@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Module Study Hours Graph";
+}
+
+<link rel="stylesheet" href="~/css/Index.css" />
+<hr />
+
+
+<body class="body">
+    <!-- Need a Canvas in order to display graphs (resolution-dependant bitmaps) -->
+    <div class="background-container">
+        <h1>@ViewData["Title"]</h1>
+        <canvas class="canvas-custom" id="studyHoursChart" width="600" height="250"></canvas>
+    </div>
+
+    <!-- Creating a new Script in order to use JavaScript Charts -->
+    @section scripts {
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+
+            // Converting the Viewbags to something readable for HTML
+            var ctx = document.getElementById('studyHoursChart').getContext('2d');
+            var weekNumbers = @Html.Raw(Json.Serialize(ViewBag.WeekNumbers));
+            var totalHours = @Html.Raw(Json.Serialize(ViewBag.TotalHours));
+            var idealHours = @Html.Raw(Json.Serialize(ViewBag.IdealHours));
+
+            // Creating a new Chart to display the lists using JavaScript
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: weekNumbers,
+                    datasets: [
+                        {
+                            label: 'Total Hours',
+                            data: totalHours,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1,
+                            fill: true
+                            
+                        },
+                        {
+                            label: 'Ideal Hours',
+                            data: idealHours,
+                            borderColor: 'rgba(255, 0, 0, 1)',
+                            borderWidth: 1,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            grid: {
+                                color: 'white'
+                            },
+                            ticks: {
+                                color: 'white'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'white'
+                            },
+                            ticks: {
+                                color: 'white'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white'
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Study Hours Chart',
+                            color: 'white'
+                        }
+                    }
+                }
+            });
+        </script>
+    }
+</body>

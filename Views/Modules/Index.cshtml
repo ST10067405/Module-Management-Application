@@ -1,0 +1,77 @@
+﻿@model IEnumerable<POEPart3.Module>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/Index.css" />
+
+<body class="body">
+    <div class="background-container">
+        <h1 class="display-3 text-left p-3">Modules</h1>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Code)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Credits)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClassHoursPerWeek)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SelfStudyHoursPerWeek)
+                    </th>
+                    @*             <th>
+                    @Html.DisplayNameFor(model => model.UserId)
+                    </th> *@
+                    <th>
+                        @Html.DisplayNameFor(model => model.Semester)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Credits)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClassHoursPerWeek)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SelfStudyHoursPerWeek)
+                        </td>
+                        @*             <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                    </td> *@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Semester.Name)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ModuleId" class="btn btn-sm btn-primary btn-outline-light btn-color">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ModuleId" class="btn btn-sm btn-info btn-outline-light btn-color">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ModuleId" class="btn btn-sm btn-danger btn-outline-danger btn-color">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+            <button class="btn btn-primary btn-sm btn-outline-light btn-color" onclick="location.href='@Url.Action("Create")'">Create New</button>
+        </p>
+    </div>
+</body>

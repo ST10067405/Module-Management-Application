@@ -1,0 +1,59 @@
+﻿@model POEPart3.ModuleStudyRecord
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<link rel="stylesheet" href="~/css/CRUDStyle.css" />
+
+<body class="body">
+    <div class="wrapper">
+        <h1>Delete</h1>
+        <h4>Module Record</h4>
+        <h4 style="text-decoration:underline;">Are you sure you want to delete this?</h4>
+        <dl class="row">
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.ModuleCode)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.ModuleCode)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd class="col-sm-7">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.HoursWorked)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.HoursWorked)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.HoursLeft)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.HoursLeft)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+            <dd class="col-sm-7">
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Module)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Module.Code)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete" class="a">
+            <input type="hidden" asp-for="RecordId" />
+            <input type="submit" value="Delete" class="btn btn-danger" style="margin-right: 10px;" />
+            <a asp-action="Index" class="btn">Back to List</a>
+        </form>
+    </div>
+</body>

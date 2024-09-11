@@ -1,0 +1,50 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+<link rel="stylesheet" href="~/css/Index.css" />
+
+<style>
+    .background-container-local {
+        position: absolute;
+        overflow-y: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        padding: 40px;
+        margin: 0 0 0 0;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        background: transparent;
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        align-items: center;
+    }
+
+</style>
+
+
+<body class="body">
+    <div class="background-container-local">
+        <h1>Manage your account</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <partial name="_ManageNav" />
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
